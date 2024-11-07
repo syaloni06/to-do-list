@@ -1,8 +1,9 @@
 import React from 'react'
 
-const ToDoItem = () => {
+const ToDoItem = (props) => {
   return (
     <>
+    {props.data.task}
     </>
   )
 }
