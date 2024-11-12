@@ -6,12 +6,27 @@ function App() {
   const [listToDo,setListToDo] = useState([]);
   const [task,setTask] = useState("");
   const [date,setDate] = useState("");
+  const [id,setId] = useState(1);
   // console.log(props);
-  const handleSubmit = (e) => {
+  const addTask = (e) => {
     e.preventDefault();
-    setListToDo([...listToDo, {task:task, date:date}]);
+    setListToDo([...listToDo, {task:task, date:date, id:id, completed:false}]);
     setTask("");
     setDate("");
+    setId(id+1);
+  }
+  const removeTask = (id) => {
+    const list = listToDo.filter((todo) => todo.id !== id);
+    setListToDo(list);
+  }
+  const completedTask = (id) => {
+    const completeList = listToDo.map((todo) => {
+      if(todo.id == id){
+        todo.completed = true;
+      }
+      return todo;
+    })
+    setListToDo(completeList);
   }
   return (
     <>
@@ -20,9 +35,9 @@ function App() {
           <input type="text" name="task" value={task} id="task" onChange={(e) => setTask(e.target.value)}/>
         <label htmlFor="dueDate">Due Date: </label>
           <input type="date" name="date" value={date} id="dueDate" onChange={(e) => setDate(e.target.value)}/>
-        <button onClick={handleSubmit} className="add">Add Task</button>
+        <button onClick={addTask} className="add">Add Task</button>
       </form>
-      <ToDoList list={listToDo}/>
+      <ToDoList list={listToDo} removeTask={removeTask} completedTask={completedTask}/>
     </>
   );
 }
