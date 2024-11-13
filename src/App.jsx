@@ -1,6 +1,8 @@
 import { useState } from "react";
 import "./index.css";
 import ToDoList from "./components/ToDoList";
+import Header from "./components/Header";
+import { IoMdAddCircle } from "react-icons/io";
 
 function App() {
   const [listToDo, setListToDo] = useState([]);
@@ -27,9 +29,9 @@ function App() {
     });
     setListToDo(completeList);
   };
-  const editTask = (id,task,date) => {
+  const editTask = (id, task, date) => {
     const editList = listToDo.map((todo) => {
-      if(todo.id == id){
+      if (todo.id == id) {
         todo.task = task;
         todo.date = date;
       }
@@ -42,27 +44,40 @@ function App() {
   };
   return (
     <>
-      <form className="flex justify-center align-center ">
-        <fieldset className="border-2">
-          <label htmlFor="task"> Task name: </label>
+      <Header />
+      <form className="flex justify-center">
+        <fieldset className="border-2 border-gray-300 rounded-lg p-6 flex flex-wrap gap-4 items-center bg-white shadow-md">
+          <label htmlFor="task" className="text-lg font-bold text-gray-700">
+            Task name:
+          </label>
           <input
-            className="rounded-md w-full md:w-1/2 p-2 h-10 mb-2 md:mb-0 focus:outline-none focus:ring focus:ring-cyan-500"
+            className="rounded-md p-2 h-10 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-cyan-500 "
             type="text"
             name="task"
             value={task}
             id="task"
             onChange={(e) => setTask(e.target.value)}
+            placeholder="Enter task name"
           />
-          <label htmlFor="dueDate">Due Date: </label>
+          <label
+            htmlFor="dueDate"
+            className="text-lg font-bold text-gray-700"
+          >
+            Due Date:
+          </label>
           <input
+            className="rounded-md p-2 h-10 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-cyan-500"
             type="date"
             name="date"
             value={date}
             id="dueDate"
             onChange={(e) => setDate(e.target.value)}
           />
-          <button onClick={addTask} className="add">
-            Add Task
+          <button
+            onClick={addTask}
+            className="bg-cyan-500 text-white font-bold py-2 px-4 rounded-md hover:bg-cyan-600 focus:outline-none focus:ring-2 focus:ring-cyan-500"
+          >
+            <div className="flex gap-2 items-center">Add Task <div className="text-3xl"><IoMdAddCircle /></div></div>
           </button>
         </fieldset>
       </form>
