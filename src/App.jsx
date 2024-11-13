@@ -46,12 +46,12 @@ function App() {
     <>
       <Header />
       <form className="flex justify-center">
-        <fieldset className="border-2 border-gray-300 rounded-lg p-6 flex flex-wrap gap-4 items-center bg-white shadow-md">
+        <fieldset className="w-full border-2 border-gray-300 rounded-lg p-6 flex flex-wrap gap-4 items-center bg-white shadow-md mx-20">
           <label htmlFor="task" className="text-lg font-bold text-gray-700">
             Task name:
           </label>
           <input
-            className="rounded-md p-2 h-10 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-cyan-500 "
+            className="rounded-md p-2 h-10 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-cyan-500 flex-grow"
             type="text"
             name="task"
             value={task}
@@ -59,14 +59,11 @@ function App() {
             onChange={(e) => setTask(e.target.value)}
             placeholder="Enter task name"
           />
-          <label
-            htmlFor="dueDate"
-            className="text-lg font-bold text-gray-700"
-          >
+          <label htmlFor="dueDate" className="text-lg font-bold text-gray-700">
             Due Date:
           </label>
           <input
-            className="rounded-md p-2 h-10 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-cyan-500"
+            className="rounded-md p-2 h-10 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-cyan-500 flex-grow"
             type="date"
             name="date"
             value={date}
@@ -75,9 +72,14 @@ function App() {
           />
           <button
             onClick={addTask}
-            className="bg-cyan-500 text-white font-bold py-2 px-4 rounded-md hover:bg-cyan-600 focus:outline-none focus:ring-2 focus:ring-cyan-500"
+            className="bg-cyan-500 text-white font-bold py-2 px-4 rounded-md hover:bg-cyan-600 focus:outline-none focus:ring-2 focus:ring-cyan-500 flex-shrink-0"
           >
-            <div className="flex gap-2 items-center">Add Task <div className="text-3xl"><IoMdAddCircle /></div></div>
+            <div className="flex gap-2 items-center">
+              Add Task{" "}
+              <div className="text-3xl">
+                <IoMdAddCircle />
+              </div>
+            </div>
           </button>
         </fieldset>
       </form>

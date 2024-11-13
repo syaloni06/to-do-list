@@ -3,23 +3,23 @@ import { IoMdCheckmarkCircleOutline } from "react-icons/io";
 import { IoMdCheckmarkCircle } from "react-icons/io";
 import { FaEdit } from "react-icons/fa";
 import { MdDeleteForever } from "react-icons/md";
-import { AiOutlineFileDone } from "react-icons/ai";
+import { IoCheckmarkDoneSharp } from "react-icons/io5";
 
 const ToDoItem = (props) => {
   const [edit, setEdit] = useState(false);
   const [editTask, setEditTask] = useState(props.data.task);
   const [editDate, setEditDate] = useState(props.data.date);
+  const [completed, setCompleted] = useState(props.data.completed);
   return (
     <>
-      <div className="border-2 border-gray-300 rounded-lg p-6 flex flex-wrap gap-4 items-center bg-white shadow-md m-20">
+      <div className="border-2 border-gray-300 rounded-lg p-6 flex flex-wrap gap-4 items-center bg-white shadow-md mx-20 my-4">
         {edit ? (
           <>
             <label htmlFor="task" className="text-lg font-bold text-gray-700">
-              {" "}
-              Task name:{" "}
+              Task name:
             </label>
             <input
-              className="rounded-md p-2 h-10 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-cyan-500"
+              className="rounded-md p-2 h-10 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-cyan-500 flex-grow"
               type="text"
               name="task"
               value={editTask}
@@ -30,7 +30,7 @@ const ToDoItem = (props) => {
               htmlFor="dueDate"
               className="text-lg font-bold text-gray-700"
             >
-              Due Date:{" "}
+              Due Date:
             </label>
             <input
               className="rounded-md p-2 h-10 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-cyan-500 flex-grow"
@@ -43,27 +43,25 @@ const ToDoItem = (props) => {
           </>
         ) : (
           <>
-            <div className="text-gray-700 text-xl font-bold flex gap-10">
-              {props.data.task}
-              <div>{props.data.date}</div>
+            <div className="text-gray-700 text-2xl font-bold flex gap-10">
+              {props.data.id}
+              {props.data.completed ? (<><div className="line-through decoration-red-600">{props.data.task}</div><div className="text-gray-300">{props.data.date}</div></>) :(<><div>{props.data.task}</div><div>{props.data.date}</div></>)}
             </div>
           </>
         )}
-        {props.data.completed && (
-          <div className="text-3xl">
-            <IoMdCheckmarkCircle />
-          </div>
-        )}
         <div className="ml-auto flex items-center gap-6">
-          <button
-            onClick={() => {
-              props.complete(props.data.id);
-            }}
-          >
-            <span className="font-extrabold text-3xl">
-              <IoMdCheckmarkCircleOutline />
-            </span>
-          </button>
+          {completed ? (
+            <IoMdCheckmarkCircle className="text-green-500 text-3xl font-extrabold" />
+          ) : (
+            <button
+              onClick={() => {
+                props.complete(props.data.id);
+                setCompleted(true); // Mark as completed
+              }}
+            >
+              <IoMdCheckmarkCircleOutline className="text-gray-400 text-3xl font-extrabold" />
+            </button>
+          )}
           {edit ? (
             <>
               <button
@@ -72,14 +70,14 @@ const ToDoItem = (props) => {
                   setEdit(false);
                 }}
               >
-                <div className="text-3xl"><AiOutlineFileDone /></div>
+                <IoCheckmarkDoneSharp className="text-yellow-500 text-3xl text-bold" />
               </button>
             </>
           ) : (
             <>
               <button onClick={() => setEdit(true)}>
                 <div className="text-3xl">
-                  <FaEdit />
+                  <FaEdit className="text-cyan-500 text-3xl text-bold" />
                 </div>
               </button>
             </>
@@ -90,7 +88,7 @@ const ToDoItem = (props) => {
             }}
           >
             <div className="text-3xl">
-              <MdDeleteForever />
+              <MdDeleteForever className="text-red-600 text-3xl text-bold" />
             </div>
           </button>
         </div>
