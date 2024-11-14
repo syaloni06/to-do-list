@@ -12,7 +12,7 @@ This is a simple To-Do List web application built using React. It allows users t
 git clone https://github.com/syaloni06/to-do-list.git
 cd to-do-list
 ```
-2. Install Vite Bundeler
+2. Install `Vite` Bundler
 ``` bash
 npm create vite@latest
 ```
