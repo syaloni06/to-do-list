@@ -3,7 +3,7 @@ const ToDoList = (props) => {
   return (
     <>
       {props.list.length != 0 && (
-        <h1 className="text-4xl font-extrabold flex justify-center m-6 italic">
+        <h1 className="text-3xl md:text-4xl text-slate-700 font-extrabold flex justify-center m-6 italic">
           To-Do-List
         </h1>
       )}

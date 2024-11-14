@@ -46,43 +46,50 @@ function App() {
     <>
       <Header />
       <form className="flex justify-center">
-        <fieldset className="w-full border-2 border-gray-300 rounded-lg p-6 flex flex-wrap gap-4 items-center bg-white shadow-md mx-20">
-          <label htmlFor="task" className="text-lg font-bold text-gray-700">
-            Task name:
-          </label>
-          <input
-            className="rounded-md p-2 h-10 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-cyan-500 flex-grow"
-            type="text"
-            name="task"
-            value={task}
-            id="task"
-            onChange={(e) => setTask(e.target.value)}
-            placeholder="Enter task name"
-          />
-          <label htmlFor="dueDate" className="text-lg font-bold text-gray-700">
-            Due Date:
-          </label>
-          <input
-            className="rounded-md p-2 h-10 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-cyan-500 flex-grow"
-            type="date"
-            name="date"
-            value={date}
-            id="dueDate"
-            onChange={(e) => setDate(e.target.value)}
-          />
-          <button
-            onClick={addTask}
-            className="bg-cyan-500 text-white font-bold py-2 px-4 rounded-md hover:bg-cyan-600 focus:outline-none focus:ring-2 focus:ring-cyan-500 flex-shrink-0"
-          >
-            <div className="flex gap-2 items-center">
-              Add Task{" "}
-              <div className="text-3xl">
-                <IoMdAddCircle />
-              </div>
-            </div>
-          </button>
-        </fieldset>
-      </form>
+  <fieldset className="w-full mt-10 border-2 border-gray-300 rounded-lg p-6 flex flex-wrap gap-4 items-center bg-white shadow-md mx-4 sm:mx-20">
+    <label
+      htmlFor="task"
+      className="text-base sm:text-lg font-bold text-gray-700 w-full sm:w-auto flex-shrink-0"
+    >
+      Task name:
+    </label>
+    <input
+      className="rounded-md p-2 h-10 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-cyan-500 flex-grow w-full lg:w-auto"
+      type="text"
+      name="task"
+      value={task}
+      id="task"
+      onChange={(e) => setTask(e.target.value)}
+      placeholder="Enter task name"
+    />
+    <label
+      htmlFor="dueDate"
+      className="text-base sm:text-lg font-bold text-gray-700 w-full sm:w-auto flex-shrink-0"
+    >
+      Due Date:
+    </label>
+    <input
+      className="rounded-md p-2 h-10 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-cyan-500 flex-grow w-full lg:w-auto"
+      type="date"
+      name="date"
+      value={date}
+      id="dueDate"
+      onChange={(e) => setDate(e.target.value)}
+    />
+    <button
+      onClick={addTask}
+      className="bg-cyan-500 text-white font-bold py-2 px-4 rounded-md hover:bg-cyan-600 focus:outline-none focus:ring-2 focus:ring-cyan-500 flex-shrink-0 w-full lg:w-auto hover:scale-105 ease-in"
+    >
+      <div className="flex gap-2 items-center justify-center">
+        Add Task{" "}
+        <div className="text-3xl">
+          <IoMdAddCircle />
+        </div>
+      </div>
+    </button>
+  </fieldset>
+</form>
+
       <ToDoList
         list={listToDo}
         removeTask={removeTask}
