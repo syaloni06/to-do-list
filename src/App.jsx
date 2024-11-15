@@ -15,13 +15,18 @@ function App() {
   // Function to add a new task
   const addTask = (e) => {
     e.preventDefault(); // Prevent default form submission
-    setListToDo([
-      ...listToDo,
-      { task: task, date: date, id: id, completed: false },
-    ]); // Add the new task with a unique ID, date, and completed status
-    setTask(""); // Reset task input
-    setDate(""); // Reset date input
-    setId(id + 1); // Increment the ID for the next task
+    if (task !== "" || date !== "") {
+      // checking condition for empty string
+      setListToDo([
+        ...listToDo,
+        { task: task, date: date, id: id, completed: false },
+      ]); // Add the new task with a unique ID, date, and completed status
+      setTask(""); // Reset task input
+      setDate(""); // Reset date input
+      setId(id + 1); // Increment the ID for the next task
+    } else {
+      alert("Please provide both a task name and a due date.");
+    }
   };
 
   // Function to mark a task as completed
@@ -57,7 +62,7 @@ function App() {
   return (
     <>
       <Header /> {/* Render header component */}
-      <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
+      <div className={`flex flex-col justify-centery ${listToDo.length === 0 && 'min-h-screen items-center'}`}>
         <form className="flex justify-center w-full">
           {" "}
           {/* Form to add tasks */}
