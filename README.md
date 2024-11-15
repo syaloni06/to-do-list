@@ -12,42 +12,12 @@ This is a simple To-Do List web application built using React. It allows users t
 git clone https://github.com/syaloni06/to-do-list.git
 cd to-do-list
 ```
-2. Install `Vite` Bundler
-``` bash
-npm create vite@latest
-```
-3. Install Dependencies
+2. Install Dependencies
 - Ensure you have `Node.js` and `npm` installed.
 ``` bash
 npm install
 ```
-4. Build Tailwind CSS
-- Install tailwindcss via npm, and create your `tailwind.config.js` file.
-``` bash
-npm install -D tailwindcss postcss autoprefixer
-npx tailwindcss init -p
-```
-- Add the paths to all of your template files in your `tailwind.config.js` file.
-``` bash
-/** @type {import('tailwindcss').Config} */
-export default {
-  content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
-  ],
-  theme: {
-    extend: {},
-  },
-  plugins: [],
-}
-```
-- Add the `@tailwind` directives for each of Tailwind’s layers to your `index.css` file.
-``` bash
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-```
-5. Start the development server
+3. Start the development server
 - This will open the application in your default browser at http://localhost:5173/
 ``` bash
 npm run dev
