@@ -61,7 +61,7 @@ function App() {
         <form className="flex justify-center w-full">
           {" "}
           {/* Form to add tasks */}
-          <fieldset className="w-full mt-10 border-2 border-gray-300 rounded-lg p-6 flex flex-wrap gap-4 items-center bg-white shadow-md mx-4 sm:mx-20">
+          <fieldset className="w-full mt-20 border-2 border-gray-300 rounded-lg p-6 flex flex-wrap gap-4 items-center bg-white shadow-md mx-4 sm:mx-20">
             {/* Task input label */}
             <label
               htmlFor="task"
