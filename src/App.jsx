@@ -57,64 +57,66 @@ function App() {
   return (
     <>
       <Header /> {/* Render header component */}
-      <form className="flex justify-center">
-        {" "}
-        {/* Form to add tasks */}
-        <fieldset className="w-full mt-10 border-2 border-gray-300 rounded-lg p-6 flex flex-wrap gap-4 items-center bg-white shadow-md mx-4 sm:mx-20">
-          {/* Task input label */}
-          <label
-            htmlFor="task"
-            className="text-base sm:text-lg font-bold text-gray-700 w-full sm:w-auto flex-shrink-0"
-          >
-            Task name:
-          </label>
-          {/* Task name input field */}
-          <input
-            className="rounded-md p-2 h-10 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-cyan-500 flex-grow w-full lg:w-auto"
-            type="text"
-            name="task"
-            value={task}
-            id="task"
-            onChange={(e) => setTask(e.target.value)}
-            placeholder="Enter task name"
-          />
-          {/* Due date label */}
-          <label
-            htmlFor="dueDate"
-            className="text-base sm:text-lg font-bold text-gray-700 w-full sm:w-auto flex-shrink-0"
-          >
-            Due Date:
-          </label>
-          {/* Due date input field */}
-          <input
-            className="rounded-md p-2 h-10 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-cyan-500 flex-grow w-full lg:w-auto"
-            type="date"
-            name="date"
-            value={date}
-            id="dueDate"
-            onChange={(e) => setDate(e.target.value)}
-          />
-          {/* Button to add a task */}
-          <button
-            onClick={addTask}
-            className="bg-cyan-500 text-white font-bold py-2 px-4 rounded-md hover:bg-cyan-600 focus:outline-none focus:ring-2 focus:ring-cyan-500 flex-shrink-0 w-full lg:w-auto hover:scale-105 ease-in"
-          >
-            <div className="flex gap-2 items-center justify-center">
-              Add Task
-              <div className="text-3xl">
-                <IoMdAddCircle /> {/* Add task icon */}
+      <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
+        <form className="flex justify-center w-full">
+          {" "}
+          {/* Form to add tasks */}
+          <fieldset className="w-full mt-10 border-2 border-gray-300 rounded-lg p-6 flex flex-wrap gap-4 items-center bg-white shadow-md mx-4 sm:mx-20">
+            {/* Task input label */}
+            <label
+              htmlFor="task"
+              className="text-base sm:text-lg font-bold text-gray-700 w-full sm:w-auto flex-shrink-0"
+            >
+              Task name:
+            </label>
+            {/* Task name input field */}
+            <input
+              className="rounded-md p-2 h-10 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-cyan-500 flex-grow w-full lg:w-auto"
+              type="text"
+              name="task"
+              value={task}
+              id="task"
+              onChange={(e) => setTask(e.target.value)}
+              placeholder="Enter task name"
+            />
+            {/* Due date label */}
+            <label
+              htmlFor="dueDate"
+              className="text-base sm:text-lg font-bold text-gray-700 w-full sm:w-auto flex-shrink-0"
+            >
+              Due Date:
+            </label>
+            {/* Due date input field */}
+            <input
+              className="rounded-md p-2 h-10 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-cyan-500 flex-grow w-full lg:w-auto"
+              type="date"
+              name="date"
+              value={date}
+              id="dueDate"
+              onChange={(e) => setDate(e.target.value)}
+            />
+            {/* Button to add a task */}
+            <button
+              onClick={addTask}
+              className="bg-cyan-500 text-white font-bold py-2 px-4 rounded-md hover:bg-cyan-600 focus:outline-none focus:ring-2 focus:ring-cyan-500 flex-shrink-0 w-full lg:w-auto hover:scale-105 ease-in"
+            >
+              <div className="flex gap-2 items-center justify-center">
+                Add Task
+                <div className="text-3xl">
+                  <IoMdAddCircle /> {/* Add task icon */}
+                </div>
               </div>
-            </div>
-          </button>
-        </fieldset>
-      </form>
-      {/* ToDoList component, passing necessary props */}
-      <ToDoList
-        list={listToDo}
-        removeTask={removeTask}
-        completedTask={completedTask}
-        editTask={editTask}
-      />
+            </button>
+          </fieldset>
+        </form>
+        {/* ToDoList component, passing necessary props */}
+        <ToDoList
+          list={listToDo}
+          removeTask={removeTask}
+          completedTask={completedTask}
+          editTask={editTask}
+        />
+      </div>
     </>
   );
 }

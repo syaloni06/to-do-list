@@ -41,7 +41,7 @@ export default {
   plugins: [],
 }
 ```
-- Add the `@tailwind` directives for each of Tailwind’s layers to your main CSS file.
+- Add the `@tailwind` directives for each of Tailwind’s layers to your `index.css` file.
 ``` bash
 @tailwind base;
 @tailwind components;
